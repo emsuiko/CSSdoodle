@@ -28,5 +28,12 @@
     "gulp-watch": "^5.0.0",
     "minimist": "^1.2.0",
     "npm": "^6.1.0"
+  },
+  "devDependencies": {
+    "gulp-image-resize": "^0.13.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-replace": "^1.0.0",
+    "gulp-webshot": "^0.2.3",
+    "underscore": "^1.9.1"
   }
 }
