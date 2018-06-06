@@ -211,9 +211,15 @@ gulp.task('tile', function() {
 
 gulp.task('shot', ['build'], function() {
     var filename = getMostRecentFileName("src/pug/tiles");
-    log('Creating screenshot and thumbnail for tile: '+filename);
-    return takeScreenshot(filename) && createThumbnail(filename);
-})
+    log('Creating screenshot for tile: '+filename);
+    return takeScreenshot(filename);
+});
+
+gulp.task('screenshot', ['shot'], () => {
+    var filename = getMostRecentFileName("src/pug/tiles");
+    log('Creating thumbnail for tile: '+filename);
+    return createThumbnail(filename);
+});
 
 gulp.task('history', function(){
     var name = require('minimist')(process.argv)['name'];
