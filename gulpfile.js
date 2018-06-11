@@ -66,11 +66,11 @@ function imagine(file) {
 
 function newTileSass(name) {
     var str = 'div.'+name;
-    return $.file(name+'.sass', str, { src: true }).pipe(gulp.dest('src/sass/tiles')) &&
+    return $.file('_'+name+'.sass', str, { src: true }).pipe(gulp.dest('src/sass/tiles')) &&
         gulp
             .src('src/sass/styles.sass')
             .pipe($.modifyFile((content, path, file) => {
-                const add = '\n@import tiles/'+name;
+                const add = '\n@import tiles/_'+name;
 
                 return `${content}${add}`;
             }))
@@ -79,11 +79,11 @@ function newTileSass(name) {
 
 function newTilePug(name) {
     var str = 'div.'+name;
-    return $.file(name+'.pug', str, { src: true }).pipe(gulp.dest('src/pug/tiles')) &&
+    return $.file('_'+name+'.pug', str, { src: true }).pipe(gulp.dest('src/pug/tiles')) &&
         gulp
             .src('src/pug/index.pug')
             .pipe($.modifyFile((content, path, file) => {
-                const add = '\n            include tiles/'+name;
+                const add = '\n            include tiles/_'+name;
 
                 return `${content}${add}`;
             }))
@@ -202,10 +202,10 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('tile', function() {
-    var name = randomize('Aa0', 10);
+    var name = randomize('Aa', 10);
     var filename = '_'+name;
-    newTilePug(filename);
-    newTileSass(filename);
+    newTilePug(name);
+    newTileSass(name);
     log('Congratulations! You just created a new tile for doodling: '+name);
 });
 
@@ -221,12 +221,14 @@ gulp.task('screenshot', ['shot'], () => {
     return createThumbnail(filename);
 });
 
-gulp.task('history', function(){
+gulp.task('history', ['screenshot'], function(){
     var name = require('minimist')(process.argv)['name'];
     var filename = getMostRecentFileName("src/pug/tiles");
+    log('Creating history entry for user '+name+' with tile '+filename);
     return gulp.src(['src/pug/history/_blank.pug'])
         .pipe($.rename('_'+filename+'.pug'))
         .pipe($.replace('filename', filename))
+        .pipe($.replace('tilecounter', filename))
         .pipe($.replace('yournamehere', name))
         .pipe(gulp.dest('src/pug/history/'))
         && gulp.src('src/pug/history.pug')
