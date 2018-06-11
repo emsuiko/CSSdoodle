@@ -5,6 +5,14 @@ CSSDoodle is just that, well... a little more tech-y maybe. ;)
 
 Here's the current doodle: [https://emsuiko.github.io/CSSdoodle/](https://emsuiko.github.io/CSSdoodle/)
 
+# TL;DR
+1. fork and clone
+2. `npm install --production`
+3. `gulp tile`
+4. `gulp watch` --> `localhost:3000`
+4. style your tile
+5. open pull request
+
 # How to contribute
 
 ## Create a new tile
