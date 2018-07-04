@@ -15,6 +15,10 @@ Here's the current doodle: [https://emsuiko.github.io/CSSdoodle/](https://emsuik
 
 # How to contribute
 
+## Requirements
+
+- [npm](https://www.npmjs.com/get-npm)
+
 ## Create a new tile
 
 This project uses [pug](https://pugjs.org/api/getting-started.html) for templating and [SASS](https://sass-lang.com/) for styling.
