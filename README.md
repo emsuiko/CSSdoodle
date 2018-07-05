@@ -16,8 +16,8 @@ Here's the current doodle: [https://emsuiko.github.io/CSSdoodle/](https://emsuik
 # How to contribute
 
 ## Requirements
-
 - [npm](https://www.npmjs.com/get-npm)
+- [gulp](https://gulpjs.com/)
 
 ## Create a new tile
 
