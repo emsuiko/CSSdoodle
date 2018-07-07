@@ -14,7 +14,6 @@ var randomize = require('randomatic');
 
 var fs = require('fs');
 var path = require('path');
-var _ = require('underscore');
 
 var env = require('minimist')(process.argv.slice(2))._[0] || 'development';
 
@@ -94,6 +93,8 @@ function newTilePug(name) {
 function getMostRecentFileName(dir) {
     var files = fs.readdirSync(dir);
 
+    var _ = require('underscore');
+    
     // use underscore for max()
     return _.max(files, function (f) {
         var fullpath = path.join(dir, f);
