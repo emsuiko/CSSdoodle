@@ -7,8 +7,6 @@ var browserSync = require('browser-sync').create();
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var del = require('del');
-var watch = require('gulp-watch');
-var plumber = require('gulp-plumber');
 
 var randomize = require('randomatic');
 
@@ -157,40 +155,15 @@ gulp.task('build', ['templates', 'sass', 'img']);
 gulp.task('watch', ['templates', 'sass', 'img', 'browserSync'], function() {
     log('Start watching...');
 
-    watch('src/pug/**/*.pug', { verbose: true }, function(vinyl) {
-        var filename = vinyl.path.replace(vinyl.cwd + '/', '');
-        templates(gulp.src(filename)
-                .pipe(plumber({ errorHandler: onError })),'')
-            .on('end', function() {
-                log('...re-pugged '+filename);
-                browserSync.reload;
-            });
+    $.watch('src/pug/**/*.pug', { verbose: true }, function(vinyl) {
+        templates(gulp.src(['src/pug/*.pug', '!src/pug/_*.pug'])
+                .pipe($.plumber({ errorHandler: onError })),'');
     });
 
-    watch('src/sass/**/*.sass', { verbose: true }, function(vinyl) {
+    $.watch('src/sass/**/*.sass', { verbose: true }, function(vinyl) {
         var filename = vinyl.path.replace(vinyl.cwd + '/', '');
         sass(gulp.src([filename], { base: 'src/sass/' })
-                .pipe(plumber({ errorHandler: onError })))
-            .on('end', function() {
-                log('...re-sassed '+filename);
-                browserSync.reload;
-            });
-    });
-
-    watch('img/**/*.*', { verbose: true }, function(vinyl) {
-        var filename = vinyl.path.replace(vinyl.cwd + '/', '');
-
-        if (vinyl.event == 'unlink') {
-            del('../dist/img/' + filename, {
-                force: true
-            });
-            log('deleted image: ' + filename);
-        } else {
-            imagine(filename)
-                .on('end', function() {
-                    log('🖼 …re-imagined');
-                });
-        }
+                .pipe($.plumber({ errorHandler: onError })));
     });
 });
 
@@ -204,22 +177,17 @@ gulp.task('browserSync', function() {
 
 gulp.task('tile', function() {
     var name = randomize('Aa', 10);
-    var filename = '_'+name;
     newTilePug(name);
     newTileSass(name);
     log('Congratulations! You just created a new tile for doodling: '+name);
 });
 
-gulp.task('shot', ['build'], function() {
+gulp.task('screenshot', ['build'], () => {
     var filename = getMostRecentFileName("src/pug/tiles");
     log('Creating screenshot for tile: '+filename);
-    return takeScreenshot(filename);
-});
-
-gulp.task('screenshot', ['shot'], () => {
-    var filename = getMostRecentFileName("src/pug/tiles");
+    takeScreenshot(filename);
     log('Creating thumbnail for tile: '+filename);
-    return createThumbnail(filename);
+    createThumbnail(filename);
 });
 
 gulp.task('history', ['screenshot'], function(){

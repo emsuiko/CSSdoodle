@@ -9,7 +9,7 @@ Here's the current doodle: [https://emsuiko.github.io/CSSdoodle/](https://emsuik
 1. fork and clone
 2. `npm install --production`
 3. `gulp tile`
-4. `gulp watch` --> `localhost:3000`
+4. `gulp` --> `localhost:3000`
 4. style your tile
 5. open pull request
 
@@ -28,7 +28,7 @@ This project uses [pug](https://pugjs.org/api/getting-started.html) for templati
 3. run `gulp tile` to create your personal tile files.  
 The name of your tile (and hence the name of your pug and sass) is a random string and will be logged on the console.  
 You can find your tile template in `src/pug/tiles` and your style file in `src/sass/tiles`. They are automatically added to `index.pug` and `styles.sass`
-4. run `gulp watch` to build the current state of the doodle. A new browser sync session will open in your browser via `localhost:3000`.
+4. run `gulp` to build the current state of the doodle. A new browser sync session will open in your browser via `localhost:3000`.
 5. open your favourite editor or IDE and start coding. The pug and sass files will be automatically processed while gulp (watch) is still running in your terminal; browser sync makes sure to refresh your page automatically too.
 6. when you are satisfied with your doodle, open a pull request.
 
