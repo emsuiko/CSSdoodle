@@ -71,5 +71,6 @@ phantomjs, imagemagick and graphicsmagick won't be installed through npm!
 
 ### Add your history entry
 1. open terminal, navigate to your project repository and run `npm install` to install devDependencies w/ aforementioned packages.
-2. run `gulp screenshot` to take the screenshot and generate the thumbnail. The filenames match your tilename.
-3. run `gulp history` with your github account name as `name` parameter, e.g. `gulp history --name emsuiko`, to add a new row in the `pug/history`. 
+2. run `gulp screenshot` to take the screenshot. The filename match your tilename.
+3. run `gulp thumbnail` to generate the thumbnail. The filename match your tilename.
+4. run `gulp history` with your github account name as `name` parameter, e.g. `gulp history --name emsuiko`, to add a new row in the `pug/history`. 
