@@ -159,22 +159,14 @@ gulp.task('watch', ['templates', 'sass', 'img', 'browserSync'], function() {
 
     watch('src/pug/**/*.pug', { verbose: true }, function(vinyl) {
         var filename = vinyl.path.replace(vinyl.cwd + '/', '');
-        templates(gulp.src(filename)
-                .pipe(plumber({ errorHandler: onError })),'')
-            .on('end', function() {
-                log('...re-pugged '+filename);
-                browserSync.reload;
-            });
+        templates(gulp.src(['src/pug/*.pug', '!src/pug/_*.pug'])
+                .pipe(plumber({ errorHandler: onError })),'');
     });
 
     watch('src/sass/**/*.sass', { verbose: true }, function(vinyl) {
         var filename = vinyl.path.replace(vinyl.cwd + '/', '');
         sass(gulp.src([filename], { base: 'src/sass/' })
-                .pipe(plumber({ errorHandler: onError })))
-            .on('end', function() {
-                log('...re-sassed '+filename);
-                browserSync.reload;
-            });
+                .pipe(plumber({ errorHandler: onError })));
     });
 
     watch('img/**/*.*', { verbose: true }, function(vinyl) {
