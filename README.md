@@ -48,6 +48,13 @@ Please refrain from using words or depiction of sexism, racism, hate or anything
 - HTML (pug) and CSS (sass) only please! :)
 - add your IDE/editor specific configuration to `.gitignore` if necessary
 
+## Images
+If you want to use images, do so sparsely please. The art should mainly be created with CSS. :)  
+Copy your images into `src/img/tiles`. Refer to them without leading slash in the src-attribute of your image tag, e.g.:
+```
+img(src='img/tiles/dummy.png', alt='dummy', title='I am a dummy image!')
+```
+
 ## History
 
 The evolution of the canvas is tracked via screenshots on the history page. (I'll add your line after merging your pull request.)
