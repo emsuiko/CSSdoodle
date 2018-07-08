@@ -32,7 +32,7 @@ You can find your tile template in `src/pug/tiles` and your style file in `src/s
 5. open your favourite editor or IDE and start coding. The pug and sass files will be automatically processed while gulp (watch) is still running in your terminal; browser sync makes sure to refresh your page automatically too.
 6. when you are satisfied with your doodle, open a pull request.
 
-## Guidlines
+## Guidelines
 Some guidelines for your doodle...
 
 ### Content
