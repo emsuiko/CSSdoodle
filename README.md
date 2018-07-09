@@ -48,6 +48,13 @@ Please refrain from using words or depiction of sexism, racism, hate or anything
 - HTML (pug) and CSS (sass) only please! :)
 - add your IDE/editor specific configuration to `.gitignore` if necessary
 
+## Images
+If you want to use images, do so sparsely please. The art should mainly be created with CSS. :)  
+Copy your images into `src/img/tiles`. Refer to them without leading slash in the src-attribute of your image tag, e.g.:
+```
+img(src='img/tiles/dummy.png', alt='dummy', title='I am a dummy image!')
+```
+
 ## History
 
 The evolution of the canvas is tracked via screenshots on the history page. (I'll add your line after merging your pull request.)
@@ -71,5 +78,6 @@ phantomjs, imagemagick and graphicsmagick won't be installed through npm!
 
 ### Add your history entry
 1. open terminal, navigate to your project repository and run `npm install` to install devDependencies w/ aforementioned packages.
-2. run `gulp screenshot` to take the screenshot and generate the thumbnail. The filenames match your tilename.
-3. run `gulp history` with your github account name as `name` parameter, e.g. `gulp history --name emsuiko`, to add a new row in the `pug/history`. 
+2. run `gulp screenshot` to take the screenshot. The filename match your tilename.
+3. run `gulp thumbnail` to generate the thumbnail. The filename match your tilename.
+4. run `gulp history` with your github account name as `name` parameter, e.g. `gulp history --name emsuiko`, to add a new row in the `pug/history`. 

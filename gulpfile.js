@@ -56,9 +56,9 @@ function templates(filestream) {
         .pipe($.if(isDevelopment(),browserSync.stream()));
 }
 
-function imagine(file) {
+function imagine(file, destination) {
     return gulp.src([file])
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist/img'+destination));
 }
 
 function newTileSass(name) {
@@ -137,7 +137,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('img', function() {
-    return imagine('src/img/**/*');
+    return imagine('src/img/**/*','');
 });
 
 gulp.task('clean', function() {
@@ -165,6 +165,12 @@ gulp.task('watch', ['templates', 'sass', 'img', 'browserSync'], function() {
         sass(gulp.src([filename], { base: 'src/sass/' })
                 .pipe($.plumber({ errorHandler: onError })));
     });
+
+    $.watch('src/img/**/*.*', { verbose: true }, function (vinyl) {
+        var filename = vinyl.path.replace(vinyl.cwd+'/','');
+        var dest = vinyl.dirname.replace(vinyl.base,'');
+        imagine(filename, dest);
+    });
 });
 
 gulp.task('browserSync', function() {
@@ -186,11 +192,15 @@ gulp.task('screenshot', ['build'], () => {
     var filename = getMostRecentFileName("src/pug/tiles");
     log('Creating screenshot for tile: '+filename);
     takeScreenshot(filename);
+});
+
+gulp.task('thumbnail', () => {
+    var filename = getMostRecentFileName("src/pug/tiles");
     log('Creating thumbnail for tile: '+filename);
     createThumbnail(filename);
 });
 
-gulp.task('history', ['screenshot'], function(){
+gulp.task('history', function(){
     var name = require('minimist')(process.argv)['name'];
     var filename = getMostRecentFileName("src/pug/tiles");
     log('Creating history entry for user '+name+' with tile '+filename);
