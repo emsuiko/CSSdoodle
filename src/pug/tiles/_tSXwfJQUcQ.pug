@@ -1,8 +1,7 @@
 div.tSXwfJQUcQ
-    div
-        span Hi from Frankfurt
-        br
-        div
-            a(href='https://cssfrankfurt.slack.com', target='_blank') 
-                img.imglink(src='/img/frank.png', alt='frank', title='visit the cssfrankfurt slack channel!')
-        span ^ visit me... ^
+    span Hi from Frankfurt
+    div.contentDiv
+        div.clickable
+            div.divImage
+            a(href='https://cssfrankfurt.slack.com', onclick="window.open(this.href,'_blank');return false;")      
+    span ^ visit me... ^
