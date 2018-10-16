@@ -1,1 +1,125 @@
+$DEFAULT_WIDTH: 20px
+$DEFAULT_HEIGHT: 20px
+
+/*****************************/
+/*******Command center*******/
+/***************************/
+$RED_be_y: 4
+$RED_be_x: 20
+$RED_af_y: 43
+$RED_af_x: 23
+$RED_be_bg: rgb(218, 247, 166)
+$RED_af_bg: rgb(255, 195, 0)
+
+$YELLOW_be_y: 42
+$YELLOW_be_x: 10
+$YELLOW_af_y: 43
+$YELLOW_af_x: 50
+$YELLOW_be_bg: rgb(218, 247, 166)
+$YELLOW_af_bg: rgb(255, 195, 0)
+
+$GREEN_be_y: 13
+$GREEN_be_x: 43
+$GREEN_af_y: 23
+$GREEN_af_x: 23
+$GREEN_be_bg: rgb(218, 247, 166)
+$GREEN_af_bg: rgb(255, 195, 0)
+
+$BLUE_be_y: 10
+$BLUE_be_x: 23
+$BLUE_af_y: 43
+$BLUE_af_x: 23
+$BLUE_be_bg: rgb(218, 247, 166)
+$BLUE_af_bg: rgb(255, 195, 0)
+/******************************/
+
 div.FAHgoEQXln
+  top: 0
+  right: 0
+  background-color: rgb(171, 235, 198)
+  overflow: hidden
+  .ball_bouncing
+    width: $DEFAULT_WIDTH
+    height: $DEFAULT_HEIGHT
+    position: absolute
+    border-radius: 50%
+  #red
+    background-color: rgb(199, 0, 57)
+    top: 20
+    left: 30
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $RED_be_y
+      right: $RED_be_x
+      background-color: yellow
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $RED_af_y
+      left: $RED_af_x
+      background-color: red
+  #yellow
+    background-color: rgb(255, 87, 51)
+    bottom: 20
+    right: 10
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $YELLOW_be_y
+      right: $YELLOW_be_x
+      background-color: $YELLOW_be_bg
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $YELLOW_af_y
+      left: $YELLOW_af_x
+      background-color: $YELLOW_af_bg
+  #green
+    background-color: rgb(130, 224, 170)
+    bottom: 7
+    left: 14
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      bottom: $GREEN_be_y
+      right: $GREEN_be_x
+      background-color: $GREEN_be_bg
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      bottom: $GREEN_af_y
+      left: $GREEN_af_x
+      background-color: $GREEN_af_bg
+  #crimson
+    background-color: rgb(144, 12, 63)
+    top: 35
+    right: 43
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $BLUE_be_y
+      right: $BLUE_be_x
+      background-color: $BLUE_be_bg
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      top: $BLUE_af_y
+      left: $BLUE_af_x
+      background-color: $BLUE_af_bg
