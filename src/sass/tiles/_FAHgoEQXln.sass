@@ -1,125 +1,242 @@
 $DEFAULT_WIDTH: 20px
 $DEFAULT_HEIGHT: 20px
+$BORDER_RADIUS: 50%
 
-/*****************************/
-/*******Command center*******/
-/***************************/
-$RED_be_y: 4
-$RED_be_x: 20
-$RED_af_y: 43
-$RED_af_x: 23
-$RED_be_bg: rgb(218, 247, 166)
-$RED_af_bg: rgb(255, 195, 0)
-
-$YELLOW_be_y: 42
-$YELLOW_be_x: 10
-$YELLOW_af_y: 43
-$YELLOW_af_x: 50
-$YELLOW_be_bg: rgb(218, 247, 166)
-$YELLOW_af_bg: rgb(255, 195, 0)
-
-$GREEN_be_y: 13
-$GREEN_be_x: 43
-$GREEN_af_y: 23
-$GREEN_af_x: 23
-$GREEN_be_bg: rgb(218, 247, 166)
-$GREEN_af_bg: rgb(255, 195, 0)
-
-$BLUE_be_y: 10
-$BLUE_be_x: 23
-$BLUE_af_y: 43
-$BLUE_af_x: 23
-$BLUE_be_bg: rgb(218, 247, 166)
-$BLUE_af_bg: rgb(255, 195, 0)
-/******************************/
+$BG_COLOR_A: rgb(random(250), random(250), random(250))
+$BG_COLOR_B: rgb(random(250), random(250), random(250))
+$BG_COLOR_C: rgb(random(250), random(250), random(250))
+$BG_COLOR_D: rgb(random(250), random(250), random(250))
+$BG_COLOR_E: rgb(random(250), random(250), random(250))
+$BG_COLOR_F: rgb(random(250), random(250), random(250))
+$BG_COLOR_G: rgb(random(250), random(250), random(250))
+$TEXT_COLOR: rgb(random(250), random(250), random(250))
 
 div.FAHgoEQXln
   top: 0
   right: 0
   background-color: rgb(171, 235, 198)
   overflow: hidden
+  .loveME
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    .text
+      color: $TEXT_COLOR
+      font-size: 24px
+      animation: 10s ease inifnite text
+  .container
+    z-index: 10
+    width: 100px
+    height: 100px
   .ball_bouncing
     width: $DEFAULT_WIDTH
     height: $DEFAULT_HEIGHT
     position: absolute
-    border-radius: 50%
+    border-radius: $BORDER_RADIUS
+  #color
+    background-color: rgb(random(20), random(103), random(250))
+    animation: 19s ease infinite moveB
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 15s ease infinite moveC
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 12s ease infinite moveA
+  #colors
+    background-color: rgb(random(20), random(103), random(250))
+    top: 30
+    left: 54
+    animation: 18s ease infinite moveB
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 11s ease infinite moveC
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 16s ease infinite moveA
+  #coloring
+    background-color: rgb(random(20), random(103), random(250))
+    top: 100
+    left: 50
+    animation: 11s ease infinite moveB
+    &:before 
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 11s ease infinite moveC
+    &:after
+      content: ''
+      position: absolute
+      width: $DEFAULT_WIDTH
+      height: $DEFAULT_HEIGHT
+      border-radius: $BORDER_RADIUS
+      animation: 12s ease infinite moveA
   #red
     background-color: rgb(199, 0, 57)
     top: 20
     left: 30
+    animation: 11s ease infinite moveB
     &:before 
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $RED_be_y
-      right: $RED_be_x
-      background-color: yellow
+      border-radius: $BORDER_RADIUS
+      animation: 11s ease infinite moveC
     &:after
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $RED_af_y
-      left: $RED_af_x
-      background-color: red
+      border-radius: $BORDER_RADIUS
+      animation: 12s ease infinite moveA
   #yellow
     background-color: rgb(255, 87, 51)
     bottom: 20
     right: 10
+    animation: 11s ease infinite moveB
     &:before 
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $YELLOW_be_y
-      right: $YELLOW_be_x
-      background-color: $YELLOW_be_bg
+      border-radius: $BORDER_RADIUS
+      animation: 12s ease infinite moveC
     &:after
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $YELLOW_af_y
-      left: $YELLOW_af_x
-      background-color: $YELLOW_af_bg
+      border-radius: $BORDER_RADIUS
+      animation: 15s ease infinite moveB
   #green
     background-color: rgb(130, 224, 170)
     bottom: 7
     left: 14
+    animation: 11s ease infinite moveB
     &:before 
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      bottom: $GREEN_be_y
-      right: $GREEN_be_x
-      background-color: $GREEN_be_bg
+      border-radius: $BORDER_RADIUS
+      animation: 12s ease infinite moveC
     &:after
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      bottom: $GREEN_af_y
-      left: $GREEN_af_x
-      background-color: $GREEN_af_bg
+      border-radius: $BORDER_RADIUS
+      animation: 7s ease infinite moveA
   #crimson
     background-color: rgb(144, 12, 63)
     top: 35
     right: 43
+    animation: 20s ease infinite moveA
     &:before 
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $BLUE_be_y
-      right: $BLUE_be_x
-      background-color: $BLUE_be_bg
+      border-radius: $BORDER_RADIUS
+      animation: 16s ease infinite moveC
     &:after
       content: ''
       position: absolute
       width: $DEFAULT_WIDTH
       height: $DEFAULT_HEIGHT
-      top: $BLUE_af_y
-      left: $BLUE_af_x
-      background-color: $BLUE_af_bg
+      border-radius: $BORDER_RADIUS
+      animation: 10s ease infinite moveB
+
+@keyframes text
+  0%
+    color: 
+
+@keyframes moveA
+  0% 
+    background-color: $BG_COLOR_G
+    top: random(100)
+    left: random(100)
+  25%
+    background-color: $BG_COLOR_E
+    top: random(50)
+    left: random(54)
+  50%
+    background-color: $BG_COLOR_F
+    top: random(70) - random(10)
+    left: random(80)
+  75%
+    background-color: $BG_COLOR_A
+    top: random(110)
+    left: random(124)
+  100%
+    background-color: $BG_COLOR_B
+    top: random(170) - random(10)
+    left: random(100)
+
+@keyframes moveB
+  0% 
+    background-color: $BG_COLOR_A
+    bottom: random(100)
+    left: random(130)
+  15%
+    background-color: $BG_COLOR_G
+    bottom: random(50)
+    left: random(54) - random(5)
+  35%
+    background-color: $BG_COLOR_C
+    bottom: random(50)
+    left: random(54) - random(5)
+  50%
+    background-color: $BG_COLOR_B
+    bottom: random(80) - random(20)
+    left: random(80) - random(10)
+  75%
+    background-color: $BG_COLOR_A
+    bottom: random(110)
+    left: random(124) - random(20)
+  100%
+    background-color: $BG_COLOR_F
+    bottom: random(100)
+    left: random(170) - random(13)
+
+@keyframes moveC
+  0% 
+    background-color: $BG_COLOR_D
+    top: random(100)
+    right: random(170) - random(30)
+  25%
+    background-color: $BG_COLOR_C
+    top: random(50)
+    right: random(54) - random(15)
+  50%
+    background-color: $BG_COLOR_G
+    top: random(70)
+    right: random(80)
+  75%
+    background-color: $BG_COLOR_D
+    top: random(110)
+    right: random(124) - random(30)
+  100%
+    background-color: $BG_COLOR_E
+    top: random(100) - random(20)
+    right: random(150) - random(15)
